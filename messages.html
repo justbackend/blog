@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Card Design</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #3498db, #9b59b6, #e74c3c);
+            background-size: 400% 400%;
+            animation: gradient 15s linear infinite;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .name {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .email {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .text {
+            font-size: 16px;
+            color: #444;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% for message in messages %}
+        <div class="card">
+            <h2 class="name">{{ message.name }}</h2>
+
+            <p class="email">
+                {% if message.email != None %}
+                    {{ message.email }}
+                {% else %}
+                    {{ message.phone_number }}
+                {% endif %}
+            </p>
+            <p class="text">
+
+                {{ message.text }}
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
